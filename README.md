@@ -213,20 +213,12 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 
 ## 👥 Autores
 
-- **Seu Nome** - *Desenvolvimento inicial* - [@seu-usuario](https://github.com/seu-usuario)
-
-## 🙏 Agradecimentos
-
-- Inspiration de design: [Material Design](https://material.io/)
-- Ícones: [Lucide Icons](https://lucide.dev/)
-- Fontes: [Google Fonts](https://fonts.google.com/)
-- Gradientes: [UI Gradients](https://uigradients.com/)
+- **Gabriel Goulart** - *Desenvolvimento inicial* - [@Gabriel-GDS-dev](https://github.com/gabriel-gds-dev)
 
 ## 📞 Contato
 
-- **Email**: seu.email@exemplo.com
-- **LinkedIn**: [Seu Nome](https://linkedin.com/in/seu-perfil)
-- **GitHub**: [@seu-usuario](https://github.com/seu-usuario)
+- **Email**: gabriel.gsouzza6@gmail.com
+- **GitHub**: [@Gabriel-GDS-dev](https://github.com/gabriel-gds-dev)
 
 ## 📈 Status do Projeto
 
