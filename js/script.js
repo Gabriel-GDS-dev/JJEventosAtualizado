@@ -275,6 +275,27 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// Função para o carrossel de imagens
+document.addEventListener("DOMContentLoaded", () => {
+  const slides = document.querySelector('.carousel-slides');
+  const images = document.querySelectorAll('.carousel-slides img');
+  let index = 0;
+
+  function updateSlidePosition() {
+    slides.style.transform = `translateX(${-index * 100}%)`;
+  }
+
+  document.querySelector('.carousel-next').addEventListener('click', () => {
+    index = (index + 1) % images.length;
+    updateSlidePosition();
+  });
+
+  document.querySelector('.carousel-prev').addEventListener('click', () => {
+    index = (index - 1 + images.length) % images.length;
+    updateSlidePosition();
+  });
+});
+
 // Initialize app
 function init() {
   // Show all products initially

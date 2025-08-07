@@ -95,43 +95,47 @@ body {
 }
 
 /* Hero Section */
-.hero {
-    background: linear-gradient(rgba(126, 74, 57, 0.8), rgba(126, 74, 57, 0.8)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23f0f0f0" width="1200" height="800"/><text x="600" y="400" font-family="Arial" font-size="48" fill="%23ccc" text-anchor="middle">Imagem de Fundo</text></svg>');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    text-align: center;
-    padding: 6rem 2rem;
+.hero-carousel {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
 }
 
-.hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    font-weight: 300;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+.carousel-slides {
+  display: flex;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
 }
 
-.hero p {
-    font-size: 1.3rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
+.carousel-slides img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.cta-button {
-    display: inline-block;
-    background: linear-gradient(135deg, #C6AE5B, #b8a049);
-    color: white;
-    padding: 1rem 2rem;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(198, 174, 91, 0.3);
+.carousel-prev,
+.carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  border: none;
+  padding: 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
 }
 
-.cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(198, 174, 91, 0.4);
+.carousel-prev {
+  left: 10px;
+}
+
+.carousel-next {
+  right: 10px;
 }
 
 /* Products Section */
