@@ -1,125 +1,117 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JJ Eventos - Catering Profissional</title>
+    <meta name="description" content="JJ Eventos - Mais de 20 anos oferecendo o melhor catering para seus eventos especiais" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="shortcut icon" href="./ico/jjeventos.ico" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JJ Eventos - Catering Profissional</title>
-  <meta name="description"
-    content="JJ Eventos - Mais de 20 anos oferecendo o melhor catering para seus eventos especiais">
-  <link rel="stylesheet" href="./css/style.css">
-  <link rel="shortcut icon" href="./ico/jjeventos.ico">
-</head>
+  <body>
+    <header class="header">
+      <nav class="nav-container">
+        <a href="#" class="logo">
+          <figure class="logo-img" style="background: #C6AE5B; display: flex; align-items: center; justify-content: center; font-weight: bold;">JJ</figure>
+          <span class="logo-text">JJ Eventos</span>
+        </a>
 
-<body>
-  <!-- Header -->
-  <header class="header">
-    <div class="nav-container">
-      <a href="#" class="logo">
-        <div class="logo-img"
-          style="background: #C6AE5B; display: flex; align-items: center; justify-content: center; font-weight: bold;">
-          JJ</div>
-        <span class="logo-text">JJ Eventos</span>
-      </a>
-
-      <nav>
-        <ul class="nav-links">
-          <li><a href="#home">Início</a></li>
-          <li><a href="#produtos">Produtos</a></li>
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-        <button class="menu-toggle">☰</button>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#home">Início</a></li>
+            <li><a href="#produtos">Produtos</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+          <button class="menu-toggle" id="menuToggle">☰</button>
+        </nav>
       </nav>
-    </div>
-  </header>
+    </header>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <div class="container">
-      <h1>Mais de 20 anos trazendo a melhor comida para você</h1>
-      <p>Catering profissional para seus eventos especiais</p>
-      <a href="#produtos" class="cta-button">Ver Nossos Produtos</a>
-    </div>
-  </section>
+    <main>
+      <section id="home" class="hero">
+        <article class="container">
+          <h1>Mais de 20 anos trazendo a melhor comida para você</h1>
+          <p>Catering profissional para seus eventos especiais</p>
+          <a href="#produtos" class="cta-button">Ver Nossos Produtos</a>
+        </article>
+      </section>
 
-  <!-- Products Section -->
-  <section id="produtos" class="container">
-    <h2 class="section-title">Nossos Produtos</h2>
+      <section id="produtos" class="container">
+        <h2 class="section-title">Nossos Produtos</h2>
 
-    <div class="category-tabs">
-      <button class="category-tab active" data-category="todos">Todos</button>
-      <button class="category-tab" data-category="salgados">Salgados</button>
-      <button class="category-tab" data-category="doces">Doces</button>
-      <button class="category-tab" data-category="saladas">Saladas</button>
-    </div>
+        <aside class="category-tabs">
+          <button class="category-tab active" data-category="todos">Todos</button>
+          <button class="category-tab" data-category="salgados">Salgados</button>
+          <button class="category-tab" data-category="doces">Doces</button>
+          <button class="category-tab" data-category="saladas">Saladas</button>
+        </aside>
 
-    <div class="products-grid" id="productsGrid">
-      <!-- Products will be loaded here by JavaScript -->
-    </div>
-  </section>
+        <section class="products-grid" id="productsGrid">
+          <!-- Produtos renderizados via JS -->
+        </section>
+      </section>
 
-  <!-- About Section -->
-  <section id="sobre" class="container">
-    <h2 class="section-title">Sobre Nós</h2>
-    <div style="text-align: center; max-width: 800px; margin: 0 auto; padding: 2rem;">
-      <p style="font-size: 1.1rem; line-height: 1.8; color: #666;">
-        A JJ Eventos é uma empresa familiar que há mais de 20 anos se dedica a oferecer
-        o melhor em catering para eventos especiais. Nossa paixão pela gastronomia e
-        compromisso com a qualidade nos tornaram referência na região.
-      </p>
-    </div>
-  </section>
+      <section id="sobre" class="container">
+        <h2 class="section-title">Sobre Nós</h2>
+        <article style="text-align: center; max-width: 800px; margin: 0 auto; padding: 2rem;">
+          <p style="font-size: 1.1rem; line-height: 1.8; color: #666;">
+            A JJ Eventos é uma empresa familiar que há mais de 20 anos se dedica a oferecer o melhor em catering para eventos especiais. Nossa paixão pela gastronomia e compromisso com a qualidade nos tornaram referência na região.
+          </p>
+        </article>
+      </section>
+    </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h3>JJ Eventos</h3>
-        <p>Mais de 20 anos oferecendo o melhor catering para seus eventos especiais.</p>
-      </div>
+    <footer class="footer">
+      <section class="footer-content">
+        <article class="footer-section">
+          <h3>JJ Eventos</h3>
+          <p>Mais de 20 anos oferecendo o melhor catering para seus eventos especiais.</p>
+        </article>
 
-      <div class="footer-section">
-        <h3 id="contato">Contato</h3>
-        <p>📱 (48) 99988-4090</p>
-        <p>📍 Criciúma, Santa Catarina</p>
-      </div>
+        <article class="footer-section">
+          <h3 id="contato">Contato</h3>
+          <p>📱 (48) 99988-4090</p>
+          <p>📍 Criciúma, Santa Catarina</p>
+        </article>
 
-      <div class="footer-section">
-        <h3>Redes Sociais</h3>
-        <div class="social-links">
-          <a href="https://api.whatsapp.com/send?phone=5548999884090" class="social-link" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="Whatsapp"></a>
-          <a href="https://www.instagram.com/jjev_entos/" class="social-link" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"></a>
-        </div>
-      </div>
-    </div>
+        <article class="footer-section">
+          <h3>Redes Sociais</h3>
+          <nav class="social-links">
+            <a href="https://api.whatsapp.com/send?phone=5548999884090" class="social-link" target="_blank">
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="Whatsapp" />
+            </a>
+            <a href="https://www.instagram.com/jjev_entos/" class="social-link" target="_blank">
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" />
+            </a>
+          </nav>
+        </article>
+      </section>
 
-    <div class="footer-bottom">
-      <p>&copy; 2025 JJ Eventos. Todos os direitos reservados.</p>
-    </div>
-  </footer>
+      <section class="footer-bottom">
+        <p>&copy; 2025 JJ Eventos. Todos os direitos reservados.</p>
+      </section>
+    </footer>
 
-  <!-- Modal -->
-  <div id="productModal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button class="close-modal">&times;</button>
-        <h2 id="modalTitle">Produto</h2>
-      </div>
-      <div class="modal-body">
-        <div id="modalImage" class="modal-image">Imagem do Produto</div>
-        <p id="modalDescription">Descrição do produto...</p>
-        <div style="margin-top: 2rem;">
-          <h4 style="color: #7E4A39; margin-bottom: 1rem;">Produtos Relacionados:</h4>
-          <div id="relatedProducts" class="products-grid" style="margin: 0;">
-            <!-- Related products will be loaded here -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    <!-- Modal de Produto -->
+    <section id="productModal" class="modal">
+      <article class="modal-content">
+        <header class="modal-header">
+          <button class="close-modal">&times;</button>
+          <h2 id="modalTitle">Produto</h2>
+        </header>
+        <section class="modal-body">
+          <figure id="modalImage" class="modal-image">Imagem do Produto</figure>
+          <p id="modalDescription">Descrição do produto...</p>
+          <section style="margin-top: 2rem;">
+            <h4 style="color: #7E4A39; margin-bottom: 1rem;">Produtos Relacionados:</h4>
+            <section id="relatedProducts" class="products-grid"></section>
+          </section>
+        </section>
+      </article>
+    </section>
 
-  <script src="./js/script.js" defer></script>
-</body>
-
+    <script src="./js/script.js" defer></script>
+  </body>
 </html>

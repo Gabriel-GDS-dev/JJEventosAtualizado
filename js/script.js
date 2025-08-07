@@ -265,6 +265,16 @@ function switchCategory(category) {
   renderProducts(products);
 }
 
+// Função para abrir/fechar o menu mobile
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.querySelector(".nav-links");
+
+  menuToggle.addEventListener("click", () => {
+    navLinks.style.display = navLinks.style.display === "flex" ? "none" : "flex";
+  });
+});
+
 // Initialize app
 function init() {
   // Show all products initially
