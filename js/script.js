@@ -275,25 +275,75 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Função para o carrossel de imagens
+// Função melhorada para o carrossel de imagens
 document.addEventListener("DOMContentLoaded", () => {
   const slides = document.querySelector('.carousel-slides');
   const images = document.querySelectorAll('.carousel-slides img');
+  const indicators = document.querySelectorAll('.indicator');
   let index = 0;
+  let autoSlideInterval;
 
   function updateSlidePosition() {
     slides.style.transform = `translateX(${-index * 100}%)`;
+    
+    // Atualizar indicadores
+    indicators.forEach((indicator, i) => {
+      indicator.classList.toggle('active', i === index);
+    });
   }
 
-  document.querySelector('.carousel-next').addEventListener('click', () => {
+  function nextSlide() {
     index = (index + 1) % images.length;
     updateSlidePosition();
+  }
+
+  function prevSlide() {
+    index = (index - 1 + images.length) % images.length;
+    updateSlidePosition();
+  }
+
+  function goToSlide(slideIndex) {
+    index = slideIndex;
+    updateSlidePosition();
+  }
+
+  function startAutoSlide() {
+    autoSlideInterval = setInterval(nextSlide, 5000); // Troca a cada 5 segundos
+  }
+
+  function stopAutoSlide() {
+    clearInterval(autoSlideInterval);
+  }
+
+  // Event listeners
+  document.querySelector('.carousel-next').addEventListener('click', () => {
+    stopAutoSlide();
+    nextSlide();
+    startAutoSlide();
   });
 
   document.querySelector('.carousel-prev').addEventListener('click', () => {
-    index = (index - 1 + images.length) % images.length;
-    updateSlidePosition();
+    stopAutoSlide();
+    prevSlide();
+    startAutoSlide();
   });
+
+  // Indicadores
+  indicators.forEach((indicator, i) => {
+    indicator.addEventListener('click', () => {
+      stopAutoSlide();
+      goToSlide(i);
+      startAutoSlide();
+    });
+  });
+
+  // Pausar auto-slide ao passar o mouse
+  const carousel = document.querySelector('.hero-carousel');
+  carousel.addEventListener('mouseenter', stopAutoSlide);
+  carousel.addEventListener('mouseleave', startAutoSlide);
+
+  // Iniciar auto-slide
+  startAutoSlide();
 });
 
 // Initialize app
