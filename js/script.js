@@ -271,24 +271,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.querySelector(".nav-links");
 
   menuToggle.addEventListener("click", () => {
-    navLinks.style.display = navLinks.style.display === "flex" ? "none" : "flex";
+    navLinks.style.display =
+      navLinks.style.display === "flex" ? "none" : "flex";
   });
 });
 
 // Função melhorada para o carrossel de imagens
 document.addEventListener("DOMContentLoaded", () => {
-  const slides = document.querySelector('.carousel-slides');
-  const images = document.querySelectorAll('.carousel-slides img');
-  const indicators = document.querySelectorAll('.indicator');
+  const slides = document.querySelector(".carousel-slides");
+  const images = document.querySelectorAll(".carousel-slides img");
+  const indicators = document.querySelectorAll(".indicator");
   let index = 0;
   let autoSlideInterval;
 
   function updateSlidePosition() {
     slides.style.transform = `translateX(${-index * 100}%)`;
-    
+
     // Atualizar indicadores
     indicators.forEach((indicator, i) => {
-      indicator.classList.toggle('active', i === index);
+      indicator.classList.toggle("active", i === index);
     });
   }
 
@@ -316,13 +317,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Event listeners
-  document.querySelector('.carousel-next').addEventListener('click', () => {
+  document.querySelector(".carousel-next").addEventListener("click", () => {
     stopAutoSlide();
     nextSlide();
     startAutoSlide();
   });
 
-  document.querySelector('.carousel-prev').addEventListener('click', () => {
+  document.querySelector(".carousel-prev").addEventListener("click", () => {
     stopAutoSlide();
     prevSlide();
     startAutoSlide();
@@ -330,7 +331,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Indicadores
   indicators.forEach((indicator, i) => {
-    indicator.addEventListener('click', () => {
+    indicator.addEventListener("click", () => {
       stopAutoSlide();
       goToSlide(i);
       startAutoSlide();
@@ -338,9 +339,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Pausar auto-slide ao passar o mouse
-  const carousel = document.querySelector('.hero-carousel');
-  carousel.addEventListener('mouseenter', stopAutoSlide);
-  carousel.addEventListener('mouseleave', startAutoSlide);
+  const carousel = document.querySelector(".hero-carousel");
+  carousel.addEventListener("mouseenter", stopAutoSlide);
+  carousel.addEventListener("mouseleave", startAutoSlide);
 
   // Iniciar auto-slide
   startAutoSlide();
