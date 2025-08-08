@@ -21,15 +21,38 @@
         <span class="logo-text">JJ Eventos</span>
       </a>
 
-      <nav>
+      <nav class="desktop-nav">
         <ul class="nav-links">
           <li><a href="#home">Início</a></li>
           <li><a href="#produtos">Produtos</a></li>
-          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="./sobrenos/sobre.html">Sobre</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
-        <button class="menu-toggle" id="menuToggle">☰</button>
       </nav>
+
+      <!-- Menu Mobile -->
+      <div class="mobile-menu-container">
+        <button class="menu-toggle" id="menuToggle">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+        
+        <div class="mobile-menu" id="mobileMenu">
+          <div class="mobile-menu-header">
+            <span class="mobile-logo">JJ Eventos</span>
+            <button class="close-menu" id="closeMenu">&times;</button>
+          </div>
+          <nav class="mobile-nav">
+            <ul class="mobile-nav-links">
+              <li><a href="#home" class="mobile-nav-link">Início</a></li>
+              <li><a href="#produtos" class="mobile-nav-link">Produtos</a></li>
+              <li><a href="./sobrenos/sobre.html" class="mobile-nav-link">Sobre</a></li>
+              <li><a href="#contato" class="mobile-nav-link">Contato</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
     </nav>
   </header>
 
@@ -45,6 +68,7 @@
       <article class="carousel-content">
         <h1>JJ Eventos</h1>
         <p>Os melhores serviços de catering para o seu evento.</p>
+        <a href="./sobrenos/sobre.html" class="carousel-btn">Conheça Nossos Serviços</a>
       </article>
 
       <button class="carousel-prev">&#10094;</button>
@@ -81,6 +105,7 @@
           incansavelmente para garantir que cada evento seja um sucesso, proporcionando uma experiência gastronômica
           inesquecível para você e seus convidados.
         </p>
+        <a href="./sobrenos/sobre.html" class="about-btn">Saiba Mais Sobre Nossos Serviços</a>
       </article>
     </section>
   </main>
