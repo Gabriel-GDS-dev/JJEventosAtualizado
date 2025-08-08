@@ -44,6 +44,70 @@ const productsDatabase = {
         "Cremoso risoto de palmito com queijo parmesão e ervas aromáticas.",
       imagem: "risotodepalmito.jpeg",
     },
+    {
+      id: "costela-e-porco",
+      nome: "Costela e Porco",
+      categoria: "salgados",
+      descricao:
+        "Costela suculenta e porco inteiro, acompanhados de molho barbecue especial.",
+      imagem: "costelaeporco.jpg",
+    },
+    {
+      id: "costelas",
+      nome: "Costelas",
+      categoria: "salgados",
+      descricao:
+        "Costelas suculentas assadas lentamente, temperadas com especiarias especiais.",
+      imagem: "costelas.jpg",
+    },
+    {
+      id: "costelas-de-lado",
+      nome: "Costelas de Lado",
+      categoria: "salgados",
+      descricao:
+        "Costelas de Lado suculentas assadas lentamente, temperadas com especiarias especiais.",
+      imagem: "costelasdelado.jpg",
+    },
+    {
+      id: "costelas-e-espetos",
+      nome: "Costelas e Espetos",
+      categoria: "salgados",
+      descricao:
+        "Costelas e espetos suculentos assados lentamente, temperados com especiarias especiais.",
+      imagem: "costelaseespetos.jpg",
+    },
+    {
+      id: "costelas-e-um-espeto",
+      nome: "Costelas e um Espeto",
+      categoria: "salgados",
+      descricao:
+        "Costelas e um espeto suculentos assados lentamente, temperados com especiarias especiais.",
+      imagem: "costelaseumespeto.jpg",
+    },
+    {
+      id: "entreveiro-daf",
+      nome: "Entreveiro Daf",
+      categoria: "salgados",
+      descricao:
+        "Entreveiro feito para a compania Daf.",
+      imagem: "entreveirodaf.jpg",
+    },
+    {
+      id: "maminha2",
+      nome: "Maminha",
+      categoria: "salgados",
+      descricao:
+        "Maminha deliciosa.",
+      imagem: "maminha2.jpg",
+    },
+    {
+      id: "picanhas",
+      nome: "Picanhas",
+      categoria: "salgados",
+      descricao:
+        "Suculentas picanhas grelhadas, temperadas com sal grosso e ervas finas.",
+      imagem: "picanhas.jpg",
+    },
   ],
   doces: [
     {
