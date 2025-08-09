@@ -62,10 +62,10 @@ const productsDatabase = {
     },
     {
       id: "costelas-de-lado",
-      nome: "Costelas de Lado",
+      nome: "Costelas",
       categoria: "salgados",
       descricao:
-        "Costelas de Lado suculentas assadas lentamente, temperadas com especiarias especiais.",
+        "Costelas suculentas assadas lentamente, temperadas com especiarias especiais.",
       imagem: "costelasdelado.jpg",
     },
     {
@@ -93,11 +93,11 @@ const productsDatabase = {
       imagem: "entreveirodaf.jpg",
     },
     {
-      id: "maminha2",
-      nome: "Maminha",
+      id: "picanha2",
+      nome: "Picanha",
       categoria: "salgados",
       descricao:
-        "Maminha deliciosa.",
+        "Picanha deliciosa.",
       imagem: "maminha2.jpg",
     },
     {
