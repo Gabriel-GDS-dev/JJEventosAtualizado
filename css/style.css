@@ -53,26 +53,26 @@ body {
 }
 
 /* Desktop Navigation */
-.desktop-nav .nav-links {
+.nav-links {
     display: flex;
     list-style: none;
     gap: 2rem;
 }
 
-.desktop-nav .nav-links a {
+.nav-links a {
     color: white;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
     position: relative;
-    font-size: 1.1rem;
 }
 
-.desktop-nav .nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
     color: #C6AE5B;
 }
 
-.desktop-nav .nav-links a::after {
+.nav-links a::after {
     content: '';
     position: absolute;
     bottom: -5px;
@@ -83,155 +83,18 @@ body {
     transition: width 0.3s ease;
 }
 
-.desktop-nav .nav-links a:hover::after {
+.nav-links a:hover::after,
+.nav-links a.active::after {
     width: 100%;
-}
-
-/* Mobile Menu Styles */
-.mobile-menu-container {
-    display: none;
 }
 
 .menu-toggle {
+    display: none;
     background: none;
     border: none;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    padding: 8px;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
-
-.menu-toggle:hover {
-    background: rgba(198, 174, 91, 0.2);
-}
-
-.hamburger-line {
-    width: 25px;
-    height: 3px;
-    background: #C6AE5B;
-    transition: all 0.3s ease;
-    border-radius: 2px;
-}
-
-.menu-toggle.active .hamburger-line:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.menu-toggle.active .hamburger-line:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-toggle.active .hamburger-line:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -6px);
-}
-
-/* Mobile Menu Overlay */
-.mobile-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: linear-gradient(135deg, rgba(126, 74, 57, 0.98), rgba(93, 52, 40, 0.98));
-    backdrop-filter: blur(10px);
-    transform: translateX(-100%);
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 9999;
-    display: flex;
-    flex-direction: column;
-}
-
-.mobile-menu.active {
-    transform: translateX(0);
-}
-
-.mobile-menu-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem;
-    border-bottom: 1px solid rgba(198, 174, 91, 0.3);
-}
-
-.mobile-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #C6AE5B;
-}
-
-.close-menu {
-    background: none;
-    border: none;
-    color: #C6AE5B;
-    font-size: 2rem;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-}
-
-.close-menu:hover {
-    background: rgba(198, 174, 91, 0.2);
-    transform: rotate(90deg);
-}
-
-.mobile-nav {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.mobile-nav-links {
-    list-style: none;
-    text-align: center;
-}
-
-.mobile-nav-links li {
-    margin: 1.5rem 0;
-}
-
-.mobile-nav-link {
     color: white;
-    text-decoration: none;
-    font-size: 1.8rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    display: block;
-    padding: 1rem 2rem;
-    border-radius: 10px;
-    position: relative;
-    overflow: hidden;
-}
-
-.mobile-nav-link:hover {
-    color: #C6AE5B;
-    background: rgba(198, 174, 91, 0.1);
-    transform: translateX(10px);
-}
-
-.mobile-nav-link::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 4px;
-    background: #C6AE5B;
-    transform: scaleY(0);
-    transition: transform 0.3s ease;
-    transform-origin: bottom;
-}
-
-.mobile-nav-link:hover::before {
-    transform: scaleY(1);
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
 /* Carrossel melhorado */
@@ -607,7 +470,7 @@ body {
     transform: translate(-50%, -50%);
     background: white;
     border-radius: 20px;
-    max-width: 800px;
+    max-width: 60%;
     max-height: 90vh;
     overflow-y: auto;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
@@ -807,25 +670,24 @@ footer .social-links img:hover {
 }
 
 @media (max-width: 768px) {
-    .desktop-nav {
+    .nav-links {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, #7E4A39 0%, #5d3428 100%);
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     }
 
-    .mobile-menu-container {
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
         display: block;
-    }
-
-    .nav-container {
-        padding: 1rem 1.5rem;
-    }
-
-    .logo-img {
-        width: 50px;
-        height: 50px;
-    }
-
-    .logo-text {
-        font-size: 1.5rem;
     }
 
     .hero-carousel {
@@ -910,6 +772,7 @@ footer .social-links img:hover {
         margin: 1rem;
         max-width: calc(100% - 2rem);
         max-height: 95vh;
+        max-width: 100%;
     }
 
     .modal-header {
@@ -925,6 +788,7 @@ footer .social-links img:hover {
     }
 
     .modal-image {
+        width: 100%;
         height: 300px;
     }
 
@@ -933,6 +797,7 @@ footer .social-links img:hover {
     }
 
     .product-image {
+        width: 100%;
         height: 250px;
     }
 
@@ -955,17 +820,24 @@ footer .social-links img:hover {
 }
 
 @media (max-width: 480px) {
-    .nav-container {
-        padding: 0.8rem 1rem;
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, #7E4A39 0%, #5d3428 100%);
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     }
 
-    .logo-img {
-        width: 45px;
-        height: 45px;
+    .nav-links.active {
+        display: flex;
     }
 
-    .logo-text {
-        font-size: 1.3rem;
+    .menu-toggle {
+        display: block;
     }
 
     .hero-carousel {
@@ -1055,10 +927,13 @@ footer .social-links img:hover {
     }
 
     .modal-body {
+        max-width: 100%;
         padding: 1.5rem 1rem;
+        width: 100%;
     }
 
     .modal-image {
+        width: 100%;
         height: 250px;
     }
 
@@ -1071,15 +946,6 @@ footer .social-links img:hover {
         width: 40px;
         height: 40px;
         font-size: 2rem;
-    }
-
-    .mobile-menu-header {
-        padding: 1.5rem;
-    }
-
-    .mobile-nav-link {
-        font-size: 1.5rem;
-        padding: 0.8rem 1.5rem;
     }
 
     .footer {

@@ -11,11 +11,11 @@ const productsDatabase = {
       destaque: true,
     },
     {
-      id: "maminha",
-      nome: "Maminha",
+      id: "Picanha",
+      nome: "Picanha",
       categoria: "salgados",
       descricao:
-        "Maminha suculenta grelhada no ponto, temperada com ervas finas e acompanhamentos especiais.",
+        "Picanha suculenta grelhada no ponto, temperada com ervas finas e acompanhamentos especiais.",
       imagem: "maminha.jpeg",
       destaque: true,
     },
@@ -315,9 +315,6 @@ function showProduct(productId) {
   
   // Aplicar tratamento de erro na imagem do modal
   handleImageErrors();
-  
-  // Close mobile menu if open
-  closeMobileMenu();
 }
 
 function handleImageErrors() {
@@ -403,17 +400,30 @@ function switchCategory(category) {
 }
 
 // Mobile Menu Functions
-function openMobileMenu() {
-  mobileMenu.classList.add("active");
-  menuToggle.classList.add("active");
-  document.body.style.overflow = "hidden";
-}
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.querySelector('.nav-links');
 
-function closeMobileMenu() {
-  mobileMenu.classList.remove("active");
-  menuToggle.classList.remove("active");
-  document.body.style.overflow = "auto";
-}
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link (mobile)
+        navLinks.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A') {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Close menu when clicking outside (mobile)
+        document.addEventListener('click', function(e) {
+            if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+    }
+});
 
 // Carousel Functions
 class CarouselManager {
@@ -575,45 +585,6 @@ function init() {
       switchCategory(tab.dataset.category);
     });
   });
-
-  // Mobile menu event listeners
-  if (menuToggle) {
-    menuToggle.addEventListener("click", openMobileMenu);
-  }
-  
-  if (closeMenuBtn) {
-    closeMenuBtn.addEventListener("click", closeMobileMenu);
-  }
-  
-  // Close mobile menu when clicking on links
-  mobileNavLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      closeMobileMenu();
-      
-      // Smooth scroll to section
-      const targetId = link.getAttribute("href");
-      if (targetId && targetId.startsWith("#")) {
-        const target = document.querySelector(targetId);
-        if (target) {
-          setTimeout(() => {
-            target.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }, 300);
-        }
-      }
-    });
-  });
-  
-  // Close mobile menu when clicking outside
-  if (mobileMenu) {
-    mobileMenu.addEventListener("click", (e) => {
-      if (e.target === mobileMenu) {
-        closeMobileMenu();
-      }
-    });
-  }
 
   // Modal event listeners
   if (closeModal) {
