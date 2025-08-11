@@ -1,195 +1,191 @@
-// Product Database
+// Product Database com eventos e mídias
 const productsDatabase = {
   salgados: [
     {
       id: "entreveiro",
-      nome: "Entreveiro",
+      nome: "Entreveiro Especial",
       categoria: "salgados",
-      descricao:
-        "Delicioso entreveiro preparado com ingredientes frescos e temperos especiais, ideal para eventos.",
+      descricao: "Entreveiro suculento temperado com ervas selecionadas e grelhado no ponto perfeito.",
       imagem: "entreveiro.jpeg",
-      destaque: true,
     },
     {
-      id: "Picanha",
-      nome: "Picanha",
-      categoria: "salgados",
-      descricao:
-        "Picanha suculenta grelhada no ponto, temperada com ervas finas e acompanhamentos especiais.",
+      id: "picanha-premium",
+      nome: "Picanha Premium",
+      categoria: "salgados", 
+      descricao: "Picanha nobre grelhada com sal grosso, acompanhada de molhos especiais da casa.",
       imagem: "maminha.jpeg",
+    },
+    {
+      id: "pedaco",
+      nome: "Pedaço de Picanha",
+      categoria: "salgados", 
+      descricao: "Pedaço suculento de picanha grelhada, perfeito para porções.",
+      imagem: "pedacopicanha.jpg",
       destaque: true,
+      evento: "evento_picanha",
+      medias: [
+        { tipo: "video", arquivo: "cortandocarne.mp4" },
+        { tipo: "imagem", arquivo: "pedacopicanha.jpg" },
+        { tipo: "imagem", arquivo: "picanhamalpassada.jpg" },
+        { tipo: "imagem", arquivo: "picanhasnoespeto.jpg" }
+      ]
     },
     {
       id: "paella-frutos",
       nome: "Paella de Frutos do Mar",
       categoria: "salgados",
-      descricao:
-        "Autêntica paella espanhola com frutos do mar frescos, arroz bomba e açafrão.",
+      descricao: "Autêntica paella espanhola com frutos do mar frescos e açafrão importado.",
       imagem: "paelladefrutosdomar.jpeg",
       destaque: true,
+      evento: "evento_paella"
     },
     {
       id: "paella-carnes",
       nome: "Paella de Carnes Brancas",
       categoria: "salgados",
-      descricao:
-        "Paella tradicional com carnes brancas selecionadas e vegetais frescos.",
+      descricao: "Paella tradicional com carnes selecionadas e vegetais frescos do dia.",
       imagem: "paelladecarnebranca.jpeg",
+      evento: "evento_paella"
     },
     {
       id: "risoto-palmito",
       nome: "Risoto de Palmito",
       categoria: "salgados",
-      descricao:
-        "Cremoso risoto de palmito com queijo parmesão e ervas aromáticas.",
+      descricao: "Risoto cremoso com palmito pupunha e queijo parmesão envelhecido.",
       imagem: "risotodepalmito.jpeg",
     },
     {
       id: "costela-e-porco",
-      nome: "Costela e Porco",
+      nome: "Costela e Porco Assado",
       categoria: "salgados",
-      descricao:
-        "Costela suculenta e porco inteiro, acompanhados de molho barbecue especial.",
+      descricao: "Costelas e porco assados lentamente com temperos especiais da casa.",
       imagem: "costelaeporco.jpg",
+      evento: "evento_costela",
+      medias: [
+        { tipo: "imagem", arquivo: "costelaeporco.jpg" },
+        { tipo: "imagem", arquivo: "costelas.jpg" },
+        { tipo: "imagem", arquivo: "costelasdelado.jpg" },
+        { tipo: "imagem", arquivo: "costelaseespetos.jpg" },
+        { tipo: "imagem", arquivo: "costelaseumespeto.jpg" }
+      ]
     },
     {
-      id: "costelas",
-      nome: "Costelas",
+      id: "costelas-rotativas",
+      nome: "Costelas Rotativas",
       categoria: "salgados",
-      descricao:
-        "Costelas suculentas assadas lentamente, temperadas com especiarias especiais.",
-      imagem: "costelas.jpg",
-    },
-    {
-      id: "costelas-de-lado",
-      nome: "Costelas",
-      categoria: "salgados",
-      descricao:
-        "Costelas suculentas assadas lentamente, temperadas com especiarias especiais.",
-      imagem: "costelasdelado.jpg",
-    },
-    {
-      id: "costelas-e-espetos",
-      nome: "Costelas e Espetos",
-      categoria: "salgados",
-      descricao:
-        "Costelas e espetos suculentos assados lentamente, temperados com especiarias especiais.",
-      imagem: "costelaseespetos.jpg",
-    },
-    {
-      id: "costelas-e-um-espeto",
-      nome: "Costelas e um Espeto",
-      categoria: "salgados",
-      descricao:
-        "Costelas e um espeto suculentos assados lentamente, temperados com especiarias especiais.",
-      imagem: "costelaseumespeto.jpg",
+      descricao: "Costelas assadas em sistema rotativo para cocção uniforme e sabor único.",
+      imagem: "costelasrotativas.jpg",
+      evento: "evento_costela_especial"
     },
     {
       id: "entreveiro-daf",
-      nome: "Entreveiro Daf",
+      nome: "Entreveiro Corporativo",
       categoria: "salgados",
-      descricao:
-        "Entreveiro feito para a compania Daf.",
+      descricao: "Entreveiro especialmente preparado para eventos corporativos e empresariais.",
       imagem: "entreveirodaf.jpg",
+      evento: "evento_corporativo"
     },
     {
       id: "picanha2",
-      nome: "Picanha",
+      nome: "Picanha Tradicional",
       categoria: "salgados",
-      descricao:
-        "Picanha deliciosa.",
+      descricao: "Picanha no estilo tradicional brasileiro, grelhada na brasa.",
       imagem: "maminha2.jpg",
+      evento: "evento_tradicional"
     },
     {
       id: "picanhas",
-      nome: "Picanhas",
+      nome: "Picanhas Especiais",
       categoria: "salgados",
-      descricao:
-        "Suculentas picanhas grelhadas, temperadas com sal grosso e ervas finas.",
+      descricao: "Seleção especial de picanhas nobres para grandes celebrações.",
       imagem: "picanhas.jpg",
-    },
+      evento: "evento_tradicional"
+    }
   ],
   doces: [
     {
       id: "fondue-morango",
       nome: "Fondue de Morango",
       categoria: "doces",
-      descricao:
-        "Delicioso fondue de chocolate com morangos frescos e acompanhamentos variados.",
+      descricao: "Fondue de chocolate belga com morangos frescos e acompanhamentos variados.",
       imagem: "fonduedemorango.jpeg",
+      evento: "evento_fondue"
     },
     {
       id: "waffle-banana",
-      nome: "Waffle de Banana com Leite Condensado",
+      nome: "Waffle com Banana",
       categoria: "doces",
-      descricao:
-        "Waffle crocante com banana caramelizada e leite condensado artesanal.",
+      descricao: "Waffle artesanal com banana caramelizada e leite condensado caseiro.",
       imagem: "waffledebananacomleitecondensado.jpeg",
+      evento: "evento_waffle"
     },
     {
       id: "waffle-morango",
       nome: "Waffle de Morango",
       categoria: "doces",
-      descricao: "Waffle dourado servido com morangos frescos e chantilly.",
+      descricao: "Waffle dourado servido com morangos frescos e chantilly aerado.",
       imagem: "waffledemorango.jpeg",
+      evento: "evento_waffle"
     },
     {
       id: "pudim",
-      nome: "Pudim",
+      nome: "Pudim Caseiro",
       categoria: "doces",
-      descricao: "Pudim caseiro cremoso com calda de caramelo artesanal.",
+      descricao: "Pudim cremoso feito com ovos frescos e calda de caramelo artesanal.",
       imagem: "pudim.jpeg",
+      evento: "evento_sobremesa"
     },
     {
       id: "fondue-banana",
       nome: "Fondue de Banana",
       categoria: "doces",
-      descricao:
-        "Fondue de chocolate com banana caramelizada e acompanhamentos especiais.",
+      descricao: "Fondue doce com banana caramelizada e chocolate meio amargo derretido.",
       imagem: "fonduedebanana.jpeg",
-    },
+      evento: "evento_fondue"
+    }
   ],
   saladas: [
     {
       id: "salada-abacaxi",
-      nome: "Salada de Abacaxi",
+      nome: "Salada Tropical",
       categoria: "saladas",
-      descricao:
-        "Refrescante salada tropical com abacaxi, folhas verdes e molho especial.",
+      descricao: "Salada refrescante com abacaxi, folhas verdes e molho cítrico especial.",
       imagem: "saladadeabacaxi.jpeg",
+      evento: "evento_salada"
     },
     {
       id: "salada-beterraba",
       nome: "Salada de Beterraba",
       categoria: "saladas",
-      descricao: "Salada nutritiva com beterraba roxa, queijo branco e nozes.",
+      descricao: "Salada nutritiva com beterraba roxa, queijo frescal e nozes crocantes.",
       imagem: "saladadebeterraba.jpeg",
+      evento: "evento_salada"
     },
     {
       id: "salada-tomate",
-      nome: "Salada de Tomate com Cebola",
+      nome: "Salada Caprese",
       categoria: "saladas",
-      descricao:
-        "Clássica salada com tomates maduros, cebola roxa e temperos frescos.",
+      descricao: "Tomates frescos com cebola roxa, manjericão e azeite extravirgem.",
       imagem: "saladadetomateecebola.jpeg",
+      evento: "evento_salada"
     },
     {
       id: "salada-mista-3",
-      nome: "Salada Mista com Três Saladas",
+      nome: "Salada Trio",
       categoria: "saladas",
-      descricao:
-        "Combinação harmoniosa de três saladas diferentes em uma única porção.",
+      descricao: "Combinação harmoniosa de três saladas diferentes em uma porção generosa.",
       imagem: "saladamista1.jpeg",
+      evento: "evento_salada_mista"
     },
     {
       id: "salada-mista-4",
-      nome: "Salada Mista com Quatro Saladas",
+      nome: "Salada Quarteto",
       categoria: "saladas",
-      descricao:
-        "Variedade ainda maior com quatro tipos de saladas cuidadosamente selecionadas.",
+      descricao: "Variedade completa com quatro tipos de saladas cuidadosamente balanceadas.",
       imagem: "saladamista2.jpeg",
-    },
-  ],
+      evento: "evento_salada_mista"
+    }
+  ]
 };
 
 // App State
@@ -201,20 +197,29 @@ const productsGrid = document.getElementById("productsGrid");
 const categoryTabs = document.querySelectorAll(".category-tab");
 const modal = document.getElementById("productModal");
 const modalTitle = document.getElementById("modalTitle");
-const modalImage = document.getElementById("modalImage");
+const modalMediaContainer = document.getElementById("modalMediaContainer");
 const modalDescription = document.getElementById("modalDescription");
 const relatedProducts = document.getElementById("relatedProducts");
 const closeModal = document.querySelector(".close-modal");
 
+// Modal Media Carousel Elements
+const mediaPrev = document.getElementById("mediaPrev");
+const mediaNext = document.getElementById("mediaNext");
+const mediaIndicators = document.getElementById("mediaIndicators");
+
+let currentMediaIndex = 0;
+let currentProductMedias = [];
+
 // Mobile Menu Elements
 const menuToggle = document.getElementById("menuToggle");
-const mobileMenu = document.getElementById("mobileMenu");
-const closeMenuBtn = document.getElementById("closeMenu");
-const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
 
 // Utility Functions
 function getImagePath(imageName) {
   return `./img/${imageName}`;
+}
+
+function getVideoPath(videoName) {
+  return `./img/${videoName}`;
 }
 
 // Get all products
@@ -246,6 +251,57 @@ function getRelatedProducts(product) {
     .slice(0, 3);
 }
 
+// Get products from same event
+function getEventProducts(product) {
+  if (!product.evento) return [product];
+  
+  const eventProducts = getAllProducts().filter(p => p.evento === product.evento);
+  
+  // Se o produto tem mídias específicas, use-as
+  if (product.medias && product.medias.length > 0) {
+    return [{
+      ...product,
+      medias: product.medias
+    }];
+  }
+  
+  // Senão, retorne todos os produtos do evento
+  return eventProducts;
+}
+
+// Create media items for carousel
+function createMediaItems(product) {
+  const eventProducts = getEventProducts(product);
+  let mediaItems = [];
+  
+  // Se o produto principal tem mídias específicas
+  if (product.medias && product.medias.length > 0) {
+    mediaItems = product.medias.map(media => ({
+      tipo: media.tipo,
+      src: media.tipo === 'video' ? getVideoPath(media.arquivo) : getImagePath(media.arquivo),
+      alt: `${product.nome} - ${media.tipo}`
+    }));
+  } else {
+    // Usar imagens dos produtos do mesmo evento
+    mediaItems = eventProducts.map(eventProduct => ({
+      tipo: 'imagem',
+      src: getImagePath(eventProduct.imagem),
+      alt: eventProduct.nome
+    }));
+  }
+  
+  // Garantir que sempre há pelo menos uma mídia
+  if (mediaItems.length === 0) {
+    mediaItems = [{
+      tipo: 'imagem',
+      src: getImagePath(product.imagem),
+      alt: product.nome
+    }];
+  }
+  
+  return mediaItems;
+}
+
 // Render products with animation
 function renderProducts(products) {
   productsGrid.innerHTML = products
@@ -267,7 +323,6 @@ function renderProducts(products) {
     )
     .join("");
     
-  // Aplicar tratamento de erro após renderizar
   handleImageErrors();
 }
 
@@ -283,7 +338,7 @@ function renderRelatedProducts(products) {
                      loading="lazy" />
             </div>
             <div class="product-info" style="padding: 1rem;">
-                <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: #7E4A39;">${product.nome}</h4>
+                <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; color: #7E4A39;">${product.nome}</h3>
                 <button class="view-details" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Ver Detalhes</button>
             </div>
         </div>
@@ -291,21 +346,128 @@ function renderRelatedProducts(products) {
     )
     .join("");
     
-  // Aplicar tratamento de erro após renderizar
   handleImageErrors();
 }
 
-// CORREÇÃO 4: Modal sem onerror inline
+function renderModalMediaCarousel(mediaItems) {
+  currentProductMedias = mediaItems;
+  currentMediaIndex = 0;
+
+  // Renderiza o conteúdo de mídia
+  modalMediaContainer.innerHTML = mediaItems
+    .map((media, index) => {
+      if (media.tipo === 'video') {
+        return `
+          <div class="media-item ${index === 0 ? 'active' : ''}" data-index="${index}">
+            <video src="${media.src}" alt="${media.alt}" muted playsinline preload="metadata">
+              Seu navegador não suporta vídeos.
+            </video>
+            <div class="video-play-overlay" onclick="toggleVideo(${index})"></div>
+          </div>
+        `;
+      } else {
+        return `
+          <div class="media-item ${index === 0 ? 'active' : ''}" data-index="${index}">
+            <img src="${media.src}" alt="${media.alt}" loading="lazy" />
+          </div>
+        `;
+      }
+    })
+    .join('');
+
+  // Renderiza indicadores somente se houver mais de uma mídia
+  if (mediaItems.length > 1) {
+    mediaIndicators.innerHTML = mediaItems
+      .map(
+        (_, index) =>
+          `<span class="media-indicator ${
+            index === 0 ? 'active' : ''
+          }" data-index="${index}" onclick="goToMedia(${index})"></span>`
+      )
+      .join('');
+
+    mediaIndicators.style.display = 'flex';
+    mediaPrev.style.display = 'flex';
+    mediaNext.style.display = 'flex';
+  } else {
+    mediaIndicators.style.display = 'none';
+    mediaPrev.style.display = 'none';
+    mediaNext.style.display = 'none';
+  }
+
+  updateMediaCarousel();
+  handleImageErrors();
+}
+
+function updateMediaCarousel() {
+  if (!currentProductMedias.length) return;
+  
+  const translateX = -currentMediaIndex * 100;
+  modalMediaContainer.style.transform = `translateX(${translateX}%)`;
+  
+  // Update indicators
+  document.querySelectorAll('.media-indicator').forEach((indicator, index) => {
+    indicator.classList.toggle('active', index === currentMediaIndex);
+  });
+  
+  // Pause all videos except current
+  document.querySelectorAll('.media-item video').forEach((video, index) => {
+    if (index !== currentMediaIndex) {
+      video.pause();
+      video.currentTime = 0;
+      video.closest('.media-item').classList.remove('playing');
+    }
+  });
+}
+
+function nextMedia() {
+  if (currentProductMedias.length <= 1) return;
+  currentMediaIndex = (currentMediaIndex + 1) % currentProductMedias.length;
+  updateMediaCarousel();
+}
+
+function prevMedia() {
+  if (currentProductMedias.length <= 1) return;
+  currentMediaIndex = (currentMediaIndex - 1 + currentProductMedias.length) % currentProductMedias.length;
+  updateMediaCarousel();
+}
+
+function goToMedia(index) {
+  currentMediaIndex = index;
+  updateMediaCarousel();
+}
+
+function toggleVideo(index) {
+  const videoElement = document.querySelector(`[data-index="${index}"] video`);
+  const mediaItem = videoElement.closest('.media-item');
+  
+  if (videoElement.paused) {
+    // Pause all other videos first
+    document.querySelectorAll('.media-item video').forEach(video => {
+      video.pause();
+      video.closest('.media-item').classList.remove('playing');
+    });
+    
+    videoElement.play();
+    mediaItem.classList.add('playing');
+  } else {
+    videoElement.pause();
+    mediaItem.classList.remove('playing');
+  }
+}
+
+// Show product modal with media carousel
 function showProduct(productId) {
   const product = getAllProducts().find((p) => p.id === productId);
   if (!product) return;
 
   currentProduct = product;
   modalTitle.textContent = product.nome;
-  modalImage.innerHTML = `<img src="${getImagePath(product.imagem)}" alt="${product.nome}" 
-                               style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" 
-                               loading="lazy" />`;
   modalDescription.textContent = product.descricao;
+
+  // Create and render media carousel
+  const mediaItems = createMediaItems(product);
+  renderModalMediaCarousel(mediaItems);
 
   const related = getRelatedProducts(product);
   renderRelatedProducts(related);
@@ -313,8 +475,8 @@ function showProduct(productId) {
   modal.style.display = "block";
   document.body.style.overflow = "hidden";
   
-  // Aplicar tratamento de erro na imagem do modal
-  handleImageErrors();
+  // Track analytics
+  AnalyticsHelper.trackProductView(productId);
 }
 
 function handleImageErrors() {
@@ -367,7 +529,7 @@ function handleImageLoad(event) {
   img.style.border = '';
 }
 
-// CORREÇÃO 6: Função para criar placeholder SVG
+// Função para criar placeholder SVG
 function createImagePlaceholder(text = 'Imagem não disponível') {
   return `data:image/svg+xml;charset=UTF-8,%3Csvg width='300' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%23f8f9fa'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23666' font-family='Arial, sans-serif' font-size='14'%3E${encodeURIComponent(text)}%3C/text%3E%3C/svg%3E`;
 }
@@ -376,6 +538,13 @@ function createImagePlaceholder(text = 'Imagem não disponível') {
 function hideModal() {
   modal.style.display = "none";
   document.body.style.overflow = "auto";
+  
+  // Pause all videos and reset
+  document.querySelectorAll('.media-item video').forEach(video => {
+    video.pause();
+    video.currentTime = 0;
+    video.closest('.media-item').classList.remove('playing');
+  });
 }
 
 // Switch category
@@ -396,6 +565,9 @@ function switchCategory(category) {
   setTimeout(() => {
     const products = filterProducts(category);
     renderProducts(products);
+    
+    // Track analytics
+    AnalyticsHelper.trackCategoryView(category);
   }, 200);
 }
 
@@ -597,13 +769,31 @@ function init() {
     });
   }
 
+  // Media carousel navigation
+  if (mediaPrev) {
+    mediaPrev.addEventListener("click", prevMedia);
+  }
+  
+  if (mediaNext) {
+    mediaNext.addEventListener("click", nextMedia);
+  }
+
   // Keyboard navigation
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       if (modal.style.display === "block") {
         hideModal();
-      } else if (mobileMenu.classList.contains("active")) {
-        closeMobileMenu();
+      }
+    }
+    
+    // Media carousel keyboard navigation
+    if (modal.style.display === "block") {
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        prevMedia();
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        nextMedia();
       }
     }
   });
@@ -633,6 +823,10 @@ function init() {
 
 // Make functions globally available
 window.showProduct = showProduct;
+window.toggleVideo = toggleVideo;
+window.goToMedia = goToMedia;
+window.nextMedia = nextMedia;
+window.prevMedia = prevMedia;
 
 // Start the app when DOM is loaded
 document.addEventListener("DOMContentLoaded", init);
@@ -664,19 +858,6 @@ window.addEventListener("load", setupLazyLoading);
 window.addEventListener("error", (e) => {
   console.error("Erro na aplicação:", e.error);
 });
-
-/* // Service Worker registration for PWA (optional)
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
-      .then(registration => {
-        console.log('SW registrado com sucesso:', registration);
-      })
-      .catch(error => {
-        console.log('Falha no registro do SW:', error);
-      });
-  });
-} */
 
 // Utilities for better UX
 class UIUtils {
@@ -768,8 +949,6 @@ class SearchManager {
         </button>
       </div>
     `;
-    
-    // Could be inserted into header if search functionality is needed
   }
   
   bindEvents() {
@@ -938,9 +1117,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize accessibility improvements
   const accessibilityManager = new AccessibilityManager();
   
-  // Initialize search manager (if needed)
-  // const searchManager = new SearchManager();
-  
   // Track initial page view
   AnalyticsHelper.trackPageView('home');
 });
@@ -970,7 +1146,7 @@ function optimizeImages() {
   });
 }
 
-// CORREÇÃO 8: Verificar se imagens existem (função utilitária)
+// Verificar se imagens existem (função utilitária)
 async function checkImageExists(url) {
   try {
     const response = await fetch(url, { method: 'HEAD' });
@@ -980,7 +1156,7 @@ async function checkImageExists(url) {
   }
 }
 
-// CORREÇÃO 9: Função para debug - verificar todas as imagens
+// Função para debug - verificar todas as imagens
 function debugImages() {
   const allProducts = getAllProducts();
   console.log('=== DEBUG DE IMAGENS ===');

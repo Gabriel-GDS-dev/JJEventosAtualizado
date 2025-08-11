@@ -450,7 +450,7 @@ body {
     color: white;
 }
 
-/* Modal */
+/* Modal Ampliado */
 .modal {
     display: none;
     position: fixed;
@@ -458,9 +458,10 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.85);
     z-index: 2000;
     backdrop-filter: blur(5px);
+    padding: 1rem;
 }
 
 .modal-content {
@@ -470,8 +471,9 @@ body {
     transform: translate(-50%, -50%);
     background: white;
     border-radius: 20px;
-    max-width: 60%;
-    max-height: 90vh;
+    width: 95%;
+    max-width: 1400px;
+    max-height: 95vh;
     overflow-y: auto;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     animation: modalSlideIn 0.3s ease;
@@ -495,10 +497,11 @@ body {
     padding: 2.5rem;
     text-align: center;
     position: relative;
+    border-radius: 20px 20px 0 0;
 }
 
 .modal-header h2 {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     font-weight: 700;
     margin: 0;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
@@ -527,53 +530,170 @@ body {
 }
 
 .modal-body {
-    padding: 2.5rem;
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: start;
 }
 
-.modal-image {
+/* Carrossel de Mídia no Modal */
+.modal-media-carousel {
+    position: relative;
     width: 100%;
-    height: 400px;
-    background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+    height: 500px;
     border-radius: 15px;
+    overflow: hidden;
+    background: #f8f9fa;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.media-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.media-item {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 2rem;
     overflow: hidden;
 }
 
-.modal-description {
-    font-size: 1.2rem;
-    line-height: 1.7;
-    color: #333;
-    margin-bottom: 2rem;
+.media-item img,
+.media-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.media-item:hover img,
+.media-item:hover video {
+    transform: scale(1.05);
+}
+
+/* Controles do carrossel no modal */
+.media-prev,
+.media-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(126, 74, 57, 0.9);
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    opacity: 0;
+    z-index: 10;
+}
+
+.modal-media-carousel:hover .media-prev,
+.modal-media-carousel:hover .media-next {
+    opacity: 1;
+}
+
+.media-prev:hover,
+.media-next:hover {
+    background: rgba(198, 174, 91, 0.9);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.media-prev {
+    left: 15px;
+}
+
+.media-next {
+    right: 15px;
+}
+
+/* Indicadores do carrossel no modal */
+.media-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.media-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.media-indicator.active {
+    background: #C6AE5B;
+    border-color: white;
+    transform: scale(1.2);
+}
+
+.media-indicator:hover {
+    background: rgba(198, 174, 91, 0.8);
+    transform: scale(1.1);
+}
+
+/* Container da descrição */
+.modal-description-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.modal-description-container p {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #444;
     font-weight: 400;
     text-align: justify;
 }
 
-.modal-body h3 {
-    color: #7E4A39;
-    font-size: 1.6rem;
-    margin: 2rem 0 1rem 0;
-    font-weight: 700;
+/* Produtos relacionados no modal */
+.related-products-section {
+    grid-column: 1 / -1;
+    margin-top: 2rem;
 }
 
-/* Produtos relacionados no modal */
+.related-products-section h4 {
+    color: #7E4A39;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    text-align: center;
+}
+
 #relatedProducts {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
 }
 
 #relatedProducts .product-card {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
-#relatedProducts .product-info h4 {
-    font-size: 1.1rem !important;
-    font-weight: 600 !important;
-    color: #7E4A39 !important;
+#relatedProducts .product-info h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #7E4A39;
 }
 
 /* Footer */
@@ -666,6 +786,25 @@ footer .social-links img:hover {
     .products-grid {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 1.5rem;
+    }
+
+    .modal-content {
+        width: 98%;
+        max-width: none;
+    }
+
+    .modal-body {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem;
+    }
+
+    .modal-media-carousel {
+        height: 400px;
+    }
+
+    .modal-header h2 {
+        font-size: 2rem;
     }
 }
 
@@ -769,14 +908,13 @@ footer .social-links img:hover {
     }
 
     .modal-content {
-        margin: 1rem;
-        max-width: calc(100% - 2rem);
-        max-height: 95vh;
-        max-width: 100%;
+        margin: 0.5rem;
+        width: calc(100% - 1rem);
+        max-height: 98vh;
     }
 
     .modal-header {
-        padding: 2rem 1.5rem;
+        padding: 1.5rem 1rem;
     }
 
     .modal-header h2 {
@@ -784,20 +922,20 @@ footer .social-links img:hover {
     }
 
     .modal-body {
-        padding: 2rem 1.5rem;
+        padding: 1.5rem;
+        gap: 1.5rem;
     }
 
-    .modal-image {
-        width: 100%;
+    .modal-media-carousel {
         height: 300px;
     }
 
-    .modal-description {
+    .modal-description-container p {
         font-size: 1.1rem;
+        text-align: left;
     }
 
     .product-image {
-        width: 100%;
         height: 250px;
     }
 
@@ -817,29 +955,13 @@ footer .social-links img:hover {
     #relatedProducts {
         grid-template-columns: 1fr;
     }
+
+    .related-products-section h4 {
+        font-size: 1.5rem;
+    }
 }
 
 @media (max-width: 480px) {
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: linear-gradient(135deg, #7E4A39 0%, #5d3428 100%);
-        flex-direction: column;
-        padding: 1rem;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
     .hero-carousel {
         height: 60vh;
     }
@@ -918,8 +1040,14 @@ footer .social-links img:hover {
         font-size: 0.9rem;
     }
 
+    .modal-content {
+        margin: 0.25rem;
+        width: calc(100% - 0.5rem);
+        max-height: 99vh;
+    }
+
     .modal-header {
-        padding: 1.5rem 1rem;
+        padding: 1rem 0.5rem;
     }
 
     .modal-header h2 {
@@ -927,19 +1055,16 @@ footer .social-links img:hover {
     }
 
     .modal-body {
-        max-width: 100%;
-        padding: 1.5rem 1rem;
-        width: 100%;
+        padding: 1rem;
+        gap: 1rem;
     }
 
-    .modal-image {
-        width: 100%;
+    .modal-media-carousel {
         height: 250px;
     }
 
-    .modal-description {
+    .modal-description-container p {
         font-size: 1rem;
-        text-align: left;
     }
 
     .close-modal {
@@ -955,6 +1080,25 @@ footer .social-links img:hover {
     .footer-content {
         gap: 1.5rem;
     }
+
+    .related-products-section h4 {
+        font-size: 1.3rem;
+    }
+
+    .media-prev,
+    .media-next {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    .media-prev {
+        left: 10px;
+    }
+
+    .media-next {
+        right: 10px;
+    }
 }
 
 /* Melhorias na acessibilidade e performance */
@@ -966,7 +1110,7 @@ footer .social-links img:hover {
     .product-card,
     .carousel-btn,
     .category-tab,
-    .mobile-nav-link {
+    .media-container {
         transition: none;
     }
 }
@@ -1011,3 +1155,70 @@ footer .social-links img:hover {
 .product-card:nth-child(4) { animation-delay: 0.4s; }
 .product-card:nth-child(5) { animation-delay: 0.5s; }
 .product-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Estilos específicos para vídeos */
+.media-item video {
+    cursor: pointer;
+}
+
+.media-item video::-webkit-media-controls {
+    display: none;
+}
+
+.media-item video::-webkit-media-controls-enclosure {
+    display: none;
+}
+
+/* Play button overlay para vídeos */
+.video-play-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(126, 74, 57, 0.9);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 5;
+}
+
+.video-play-overlay:hover {
+    background: rgba(198, 174, 91, 0.9);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.video-play-overlay::after {
+    content: '▶';
+    color: white;
+    font-size: 2rem;
+    margin-left: 3px;
+}
+
+/* Ocultar overlay quando vídeo está tocando */
+.media-item.playing .video-play-overlay {
+    display: none;
+}
+
+/* Custom scrollbar para modal */
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: #C6AE5B;
+    border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: #b8a049;
+}

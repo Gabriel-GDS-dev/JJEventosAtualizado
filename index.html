@@ -128,7 +128,7 @@
     </section>
   </footer>
 
-  <!-- Modal de Produto -->
+  <!-- Modal de Produto Ampliado -->
   <section id="productModal" class="modal">
     <article class="modal-content">
       <header class="modal-header">
@@ -136,9 +136,27 @@
         <h2 id="modalTitle">Produto</h2>
       </header>
       <section class="modal-body">
-        <figure id="modalImage" class="modal-image">Imagem do Produto</figure>
-        <p id="modalDescription">Descrição do produto...</p>
-        <section style="margin-top: 2rem;">
+        <!-- Carrossel de Mídia no Modal -->
+        <div class="modal-media-carousel">
+          <div class="media-container" id="modalMediaContainer">
+            <!-- Mídia será inserida aqui dinamicamente -->
+          </div>
+          
+          <!-- Controles do carrossel (apenas aparecem se houver múltiplas mídias) -->
+          <button class="media-prev" id="mediaPrev">&#10094;</button>
+          <button class="media-next" id="mediaNext">&#10095;</button>
+          
+          <!-- Indicadores do carrossel -->
+          <div class="media-indicators" id="mediaIndicators">
+            <!-- Indicadores serão inseridos aqui dinamicamente -->
+          </div>
+        </div>
+        
+        <div class="modal-description-container">
+          <p id="modalDescription">Descrição do produto...</p>
+        </div>
+        
+        <section class="related-products-section">
           <h4 style="color: #7E4A39; margin-bottom: 1rem;">Produtos Relacionados:</h4>
           <section id="relatedProducts" class="products-grid"></section>
         </section>
