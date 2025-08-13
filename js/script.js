@@ -24,10 +24,10 @@ const productsDatabase = {
       destaque: true,
       evento: "evento_picanha",
       medias: [
-        { tipo: "video", arquivo: "cortandocarne.mp4" },
-        { tipo: "imagem", arquivo: "pedacopicanha.jpg" },
-        { tipo: "imagem", arquivo: "picanhamalpassada.jpg" },
-        { tipo: "imagem", arquivo: "picanhasnoespeto.jpg" }
+        { tipo: "video", arquivo: "cortandocarne.mp4", nome: "Cortando a Carne Suculenta", descricao: "Cortando a carne suculenta" },
+        { tipo: "imagem", arquivo: "pedacopicanha.jpg", nome: "Pedaço de Picanha", descricao: "Pedaço de picanha" },
+        { tipo: "imagem", arquivo: "picanhamalpassada.jpg", nome: "Picanha Mal Passada", descricao: "Picanha mal passada" },
+        { tipo: "imagem", arquivo: "picanhasnoespeto.jpg", nome: "Picanha no Espeto", descricao: "Picanha no espeto" }
       ]
     },
     {
@@ -56,22 +56,22 @@ const productsDatabase = {
     },
     {
       id: "costela-e-porco",
-      nome: "Costela e Porco Assado",
+      nome: "Costela Bovina e Porco Inteiro Assado",
       categoria: "salgados",
-      descricao: "Costelas e porco assados lentamente com temperos especiais da casa.",
+      descricao: "Costela bovina e porco inteiro assados lentamente com temperos especiais da casa.",
       imagem: "costelaeporco.jpg",
       evento: "evento_costela",
       medias: [
-        { tipo: "imagem", arquivo: "costelaeporco.jpg" },
-        { tipo: "imagem", arquivo: "costelas.jpg" },
-        { tipo: "imagem", arquivo: "costelasdelado.jpg" },
-        { tipo: "imagem", arquivo: "costelaseespetos.jpg" },
-        { tipo: "imagem", arquivo: "costelaseumespeto.jpg" }
+        { tipo: "imagem", arquivo: "costelaeporco.jpg", nome: "Costela Bovina e Porco Inteiro Assado", descricao: "Costela bovina e porco inteiro assado" },
+        { tipo: "imagem", arquivo: "costelas.jpg", nome: "Costelas", descricao: "Costelas suculentas" },
+        { tipo: "imagem", arquivo: "costelasdelado.jpg", nome: "Costelas", descricao: "Costelas" },
+        { tipo: "imagem", arquivo: "costelaseespetos.jpg", nome: "Costelas e Espetos", descricao: "Costelas e espetos" },
+        { tipo: "imagem", arquivo: "costelaseumespeto.jpg", nome: "Costelas em um Espeto", descricao: "Costelas em um espeto" }
       ]
     },
     {
       id: "costelas-rotativas",
-      nome: "Costelas Rotativas",
+      nome: "Costelas",
       categoria: "salgados",
       descricao: "Costelas assadas em sistema rotativo para cocção uniforme e sabor único.",
       imagem: "costelasrotativas.jpg",
@@ -87,7 +87,7 @@ const productsDatabase = {
     },
     {
       id: "picanha2",
-      nome: "Picanha Tradicional",
+      nome: "Picanha no Espeto",
       categoria: "salgados",
       descricao: "Picanha no estilo tradicional brasileiro, grelhada na brasa.",
       imagem: "maminha2.jpg",
@@ -113,9 +113,9 @@ const productsDatabase = {
     },
     {
       id: "waffle-banana",
-      nome: "Waffle com Banana",
+      nome: "Waffle de Banana com Leite Condensado",
       categoria: "doces",
-      descricao: "Waffle artesanal com banana caramelizada e leite condensado caseiro.",
+      descricao: "Waffle artesanal com banana e leite condensado caseiro.",
       imagem: "waffledebananacomleitecondensado.jpeg",
       evento: "evento_waffle"
     },
@@ -198,7 +198,8 @@ const categoryTabs = document.querySelectorAll(".category-tab");
 const modal = document.getElementById("productModal");
 const modalTitle = document.getElementById("modalTitle");
 const modalMediaContainer = document.getElementById("modalMediaContainer");
-const modalDescription = document.getElementById("modalDescription");
+const modalCurrentItemTitle = document.getElementById("modalCurrentItemTitle");
+const modalCurrentItemDescription = document.getElementById("modalCurrentItemDescription");
 const relatedProducts = document.getElementById("relatedProducts");
 const closeModal = document.querySelector(".close-modal");
 
@@ -251,54 +252,60 @@ function getRelatedProducts(product) {
     .slice(0, 3);
 }
 
-// Get products from same event
-function getEventProducts(product) {
-  if (!product.evento) return [product];
+// Get products from same event, with clicked product first
+function getEventProducts(clickedProduct) {
+  if (!clickedProduct.evento) return [clickedProduct];
   
-  const eventProducts = getAllProducts().filter(p => p.evento === product.evento);
+  const eventProducts = getAllProducts().filter(p => p.evento === clickedProduct.evento);
   
-  // Se o produto tem mídias específicas, use-as
-  if (product.medias && product.medias.length > 0) {
-    return [{
-      ...product,
-      medias: product.medias
-    }];
-  }
+  // Reorganizar para que o produto clicado apareça primeiro
+  const reorderedProducts = [clickedProduct];
+  eventProducts.forEach(product => {
+    if (product.id !== clickedProduct.id) {
+      reorderedProducts.push(product);
+    }
+  });
   
-  // Senão, retorne todos os produtos do evento
-  return eventProducts;
+  return reorderedProducts;
 }
 
-// Create media items for carousel
-function createMediaItems(product) {
-  const eventProducts = getEventProducts(product);
+// Create media items for carousel with specific order
+function createMediaItems(clickedProduct) {
   let mediaItems = [];
-  
-  // Se o produto principal tem mídias específicas
-  if (product.medias && product.medias.length > 0) {
-    mediaItems = product.medias.map(media => ({
+
+  // Se o produto clicado tem mídias específicas, use-as
+  if (clickedProduct.medias && clickedProduct.medias.length > 0) {
+    mediaItems = clickedProduct.medias.map(media => ({
       tipo: media.tipo,
       src: media.tipo === 'video' ? getVideoPath(media.arquivo) : getImagePath(media.arquivo),
-      alt: `${product.nome} - ${media.tipo}`
+      alt: `${clickedProduct.nome} - ${media.tipo}`,
+      nome: media.nome || clickedProduct.nome, // Usa o nome da mídia se existir
+      descricao: media.descricao || clickedProduct.descricao // Usa a descrição da mídia se existir
     }));
   } else {
-    // Usar imagens dos produtos do mesmo evento
+    // Obter produtos do evento com ordem baseada no produto clicado
+    const eventProducts = getEventProducts(clickedProduct);
+
     mediaItems = eventProducts.map(eventProduct => ({
       tipo: 'imagem',
       src: getImagePath(eventProduct.imagem),
-      alt: eventProduct.nome
+      alt: eventProduct.nome,
+      nome: eventProduct.nome,
+      descricao: eventProduct.descricao
     }));
   }
-  
+
   // Garantir que sempre há pelo menos uma mídia
   if (mediaItems.length === 0) {
     mediaItems = [{
       tipo: 'imagem',
-      src: getImagePath(product.imagem),
-      alt: product.nome
+      src: getImagePath(clickedProduct.imagem),
+      alt: clickedProduct.nome,
+      nome: clickedProduct.nome,
+      descricao: clickedProduct.descricao
     }];
   }
-  
+
   return mediaItems;
 }
 
@@ -353,36 +360,14 @@ function renderModalMediaCarousel(mediaItems) {
   currentProductMedias = mediaItems;
   currentMediaIndex = 0;
 
-  // Renderiza o conteúdo de mídia
-  modalMediaContainer.innerHTML = mediaItems
-    .map((media, index) => {
-      if (media.tipo === 'video') {
-        return `
-          <div class="media-item ${index === 0 ? 'active' : ''}" data-index="${index}">
-            <video src="${media.src}" alt="${media.alt}" muted playsinline preload="metadata">
-              Seu navegador não suporta vídeos.
-            </video>
-            <div class="video-play-overlay" onclick="toggleVideo(${index})"></div>
-          </div>
-        `;
-      } else {
-        return `
-          <div class="media-item ${index === 0 ? 'active' : ''}" data-index="${index}">
-            <img src="${media.src}" alt="${media.alt}" loading="lazy" />
-          </div>
-        `;
-      }
-    })
-    .join('');
+  renderCurrentMediaItem();
 
   // Renderiza indicadores somente se houver mais de uma mídia
   if (mediaItems.length > 1) {
     mediaIndicators.innerHTML = mediaItems
       .map(
         (_, index) =>
-          `<span class="media-indicator ${
-            index === 0 ? 'active' : ''
-          }" data-index="${index}" onclick="goToMedia(${index})"></span>`
+          `<span class="media-indicator${index === 0 ? ' active' : ''}" data-index="${index}" onclick="goToMedia(${index})"></span>`
       )
       .join('');
 
@@ -395,29 +380,67 @@ function renderModalMediaCarousel(mediaItems) {
     mediaNext.style.display = 'none';
   }
 
-  updateMediaCarousel();
+  updateCurrentItemInfo();
   handleImageErrors();
 }
 
+function renderCurrentMediaItem() {
+  const media = currentProductMedias[currentMediaIndex];
+  if (!media) return;
+
+  // Escapa aspas duplas para evitar problemas no HTML
+  const nomeEsc = (media.nome || '').replace(/"/g, '&quot;');
+  const descEsc = (media.descricao || '').replace(/"/g, '&quot;');
+
+  if (media.tipo === 'video') {
+    modalMediaContainer.innerHTML = `
+      <div class="media-item active" data-index="${currentMediaIndex}" data-nome="${nomeEsc}" data-descricao="${descEsc}">
+        <video src="${media.src}" alt="${media.alt}" muted playsinline preload="metadata">
+          Seu navegador não suporta vídeos.
+        </video>
+        <div class="video-play-overlay" onclick="toggleVideo(${currentMediaIndex})"></div>
+      </div>
+    `;
+  } else {
+    modalMediaContainer.innerHTML = `
+      <div class="media-item active" data-index="${currentMediaIndex}" data-nome="${nomeEsc}" data-descricao="${descEsc}">
+        <img src="${media.src}" alt="${media.alt}" loading="lazy" />
+      </div>
+    `;
+  }
+}
+
 function updateMediaCarousel() {
-  if (!currentProductMedias.length) return;
-  
-  const translateX = -currentMediaIndex * 100;
-  modalMediaContainer.style.transform = `translateX(${translateX}%)`;
-  
-  // Update indicators
+  renderCurrentMediaItem();
+
+  // Atualiza indicadores
   document.querySelectorAll('.media-indicator').forEach((indicator, index) => {
     indicator.classList.toggle('active', index === currentMediaIndex);
   });
-  
-  // Pause all videos except current
+
+  // Atualiza info do item atual
+  updateCurrentItemInfo();
+
+  // Pausa todos os vídeos exceto o atual
   document.querySelectorAll('.media-item video').forEach((video, index) => {
-    if (index !== currentMediaIndex) {
+    if (index !== 0) { // Só existe um vídeo no DOM agora
       video.pause();
       video.currentTime = 0;
       video.closest('.media-item').classList.remove('playing');
     }
   });
+}
+
+function updateCurrentItemInfo() {
+  // Busca direto do array de mídias, não do DOM
+  const media = currentProductMedias[currentMediaIndex];
+  if (media) {
+    modalCurrentItemTitle.textContent = media.nome || '';
+    modalCurrentItemDescription.textContent = media.descricao || '';
+  } else {
+    modalCurrentItemTitle.textContent = '';
+    modalCurrentItemDescription.textContent = '';
+  }
 }
 
 function nextMedia() {
@@ -463,9 +486,8 @@ function showProduct(productId) {
 
   currentProduct = product;
   modalTitle.textContent = product.nome;
-  modalDescription.textContent = product.descricao;
 
-  // Create and render media carousel
+  // Create and render media carousel with clicked product first
   const mediaItems = createMediaItems(product);
   renderModalMediaCarousel(mediaItems);
 
@@ -504,10 +526,10 @@ function handleImageError(event) {
     // Tentar com caminho alternativo
     const currentSrc = img.src;
     if (currentSrc.includes('./img/')) {
-      // Tentar sem ./
+      // Tentar sem ./ 
       img.src = currentSrc.replace('./img/', 'img/');
     } else if (currentSrc.includes('img/')) {
-      // Tentar com ./
+      // Tentar com ./ 
       img.src = currentSrc.replace('img/', './img/');
     }
     return;
