@@ -435,9 +435,11 @@ function updateCurrentItemInfo() {
   // Busca direto do array de mídias, não do DOM
   const media = currentProductMedias[currentMediaIndex];
   if (media) {
+    modalTitle.textContent = media.nome || currentProduct.nome || '';
     modalCurrentItemTitle.textContent = media.nome || '';
     modalCurrentItemDescription.textContent = media.descricao || '';
   } else {
+    modalTitle.textContent = currentProduct ? currentProduct.nome : '';
     modalCurrentItemTitle.textContent = '';
     modalCurrentItemDescription.textContent = '';
   }
