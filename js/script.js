@@ -216,11 +216,11 @@ const menuToggle = document.getElementById("menuToggle");
 
 // Utility Functions
 function getImagePath(imageName) {
-  return `./img/${imageName}`;
+  return `../img/${imageName}`;
 }
 
 function getVideoPath(videoName) {
-  return `./img/${videoName}`;
+  return `../img/${videoName}`;
 }
 
 // Get all products
@@ -525,12 +525,12 @@ function handleImageError(event) {
     
     // Tentar com caminho alternativo
     const currentSrc = img.src;
-    if (currentSrc.includes('./img/')) {
-      // Tentar sem ./ 
-      img.src = currentSrc.replace('./img/', 'img/');
+    if (currentSrc.includes('../img/')) {
+      // Tentar sem ../
+      img.src = currentSrc.replace('../img/', 'img/');
     } else if (currentSrc.includes('img/')) {
-      // Tentar com ./ 
-      img.src = currentSrc.replace('img/', './img/');
+      // Tentar com ../
+      img.src = currentSrc.replace('img/', '../img/');
     }
     return;
   }
@@ -1192,7 +1192,7 @@ function debugImages() {
   console.log('Imagens no DOM:', document.querySelectorAll('img').length);
   
   // Verificar se a pasta img existe
-  fetch('./img/')
+  fetch('../img/')
     .then(response => {
       console.log('Pasta img/ existe:', response.ok);
     })
