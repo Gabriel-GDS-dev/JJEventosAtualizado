@@ -828,11 +828,11 @@ footer .social-links img:hover {
 /* Responsividade Melhorada */
 @media (max-width: 1024px) {
     .carousel-content h1 {
-        font-size: 3rem;
+        font-size: 2rem;
     }
     
     .carousel-content p {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
     
     .products-grid {
@@ -909,20 +909,15 @@ footer .social-links img:hover {
     }
 
     .carousel-content h1 {
-        font-size: 2.5rem;
-        margin-bottom: 0.8rem;
-        letter-spacing: 1px;
+        font-size: 1rem;
     }
 
     .carousel-content p {
-        font-size: 1.1rem;
-        margin-bottom: 1.5rem;
-        line-height: 1.5;
+        font-size: 0.9rem;
     }
 
     .carousel-btn {
-        padding: 0.8rem 2rem;
-        font-size: 1rem;
+        font-size: 0.5rem;
     }
 
     .carousel-indicators {
@@ -1019,23 +1014,19 @@ footer .social-links img:hover {
     }
 
     .carousel-content {
-        bottom: 40px;
-        padding: 0 0.5rem;
+        bottom: 0px;
     }
 
     .carousel-content h1 {
-        font-size: 2rem;
-        margin-bottom: 0.5rem;
+        font-size: 1rem;
     }
 
     .carousel-content p {
-        font-size: 1rem;
-        margin-bottom: 1rem;
+        font-size: 0.5rem;
     }
 
     .carousel-btn {
-        padding: 0.7rem 1.5rem;
-        font-size: 0.9rem;
+        font-size: 0.5rem;
     }
 
     .carousel-prev,
